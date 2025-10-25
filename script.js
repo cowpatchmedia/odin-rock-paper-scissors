@@ -1,20 +1,23 @@
+let humanScore = 0; //initializes score variables
+let compScore = 0;
+
 function getCompChoice () { //this randomly generates a computer choice based on random and percentages
         let randNum = Math.random();
         let compResult = "";
 
         if (randNum <= .33) {
-            compResult = "Rock"
+            compResult = "rock"
         } else if (randNum <= .67) {
-            compResult = "Paper"
+            compResult = "paper"
         } else {
-            compResult = "Scissors"
+            compResult = "scissors"
         }
         return compResult; //return result so that function can be called in other functions
     };
 
 function getHumanChoice () { //let human enter in answer
     let humanResult = prompt("Enter Rock, Paper, or Scissors");
-    return humanResult; // return result so it can be referenced in other functions
+    return humanResult.toLowerCase(); // return result so it can be referenced in other functions
 };
 
 function playRound(compChoice,humanChoice){ //explicitly check for human win conditions, if not then computer wins round
@@ -22,9 +25,9 @@ function playRound(compChoice,humanChoice){ //explicitly check for human win con
         console.log("It's a tie."); // tie don't increment scores
     }
     else if (
-        (humanChoice === "Scissors" && compChoice === "Paper") || //double line is "OR"
-        (humanChoice === "Rock" && compChoice === "Scissors") || // and is using &&
-        (humanChoice === "Paper" && compChoice === "Rock") // use === not = which changes value
+        (humanChoice === "scissors" && compChoice === "paper") || //double line is "OR"
+        (humanChoice === "rock" && compChoice === "scissors") || // and is using &&
+        (humanChoice === "paper" && compChoice === "rock") // use === not = which changes value
         ){
             console.log(`${humanChoice} beats ${compChoice}! You win this round.`);// ${} prints variable
             humanScore++;
@@ -48,6 +51,4 @@ function playGame(){
     console.log("Final Score: Human", humanScore, "| ", "Computer:", compScore) //prints final score at end of game.
 };
 
-let humanScore = 0; //initializes score variables
-let compScore = 0;
 playGame(); // calls playRound 5x 
