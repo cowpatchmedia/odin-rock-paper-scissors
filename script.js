@@ -1,19 +1,27 @@
 
+let humanScore = 0;
+let computerScore = 0;
+
+
 
 function getComputerChoice () {
     let randNum = Math.random();
-    let result = ""
+    let compResult = "";
     
     if (randNum <= .33) {
-        result = "rock"
+        compResult = "rock"
     } else if (randNum <= .67) {
-        result = "paper"
+        compResult = "paper"
     } else {
-        result = "scissor"
+        compResult = "scissor"
     }
-    return result;
+    return compResult;
 };
 
-getComputerChoice();
+function getHumanChoice () {
+    let humanResult = prompt("Enter Rock, Paper, or Scissors");
+    return humanResult;
+};
 
 console.log(getComputerChoice());
+console.log(getHumanChoice());
