@@ -1,7 +1,7 @@
 let humanScore = 0; //initializes score variables
 let compScore = 0;
 
-function getCompChoice () { //this randomly generates a computer choice based on random and percentages
+function getCompChoice () { //this randomly generates a computer choice based on random and percentages of 1. 
         let randNum = Math.random();
         let compResult = "";
 
@@ -27,10 +27,10 @@ function playRound(compChoice,humanChoice){ //explicitly check for human win con
     else if (
         (humanChoice === "scissors" && compChoice === "paper") || //double line is "OR"
         (humanChoice === "rock" && compChoice === "scissors") || // and is using &&
-        (humanChoice === "paper" && compChoice === "rock") // use === not = which changes value
+        (humanChoice === "paper" && compChoice === "rock") // use === not = which changes value. 
         ){
             console.log(`${humanChoice} beats ${compChoice}! You win this round.`);// ${} prints variable
-            humanScore++;
+            humanScore++;//increments human score 
         }
     else {
         console.log(`${compChoice} beats ${humanChoice}! You lose this round.`);// make sure to use backtick ` not '
@@ -51,4 +51,4 @@ function playGame(){
     console.log("Final Score: Human", humanScore, "| ", "Computer:", compScore) //prints final score at end of game.
 };
 
-playGame(); // calls playRound 5x 
+playGame(); // calls playRound 5x - put at end of code. I think this helps initialize everything else before it runs. 
